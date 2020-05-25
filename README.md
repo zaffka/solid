@@ -1,0 +1,1 @@
+SOLID-principles illustrated by Go-code

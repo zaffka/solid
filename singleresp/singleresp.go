@@ -1,4 +1,4 @@
-package single
+package singleresp
 
 import "database/sql"
 

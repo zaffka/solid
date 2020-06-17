@@ -3,7 +3,7 @@ package openclosed
 import (
 	"testing"
 
-	"github.com/magiconair/properties/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 var seedData = []President{

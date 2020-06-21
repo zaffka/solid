@@ -18,7 +18,7 @@ func (c *Currency) AskMarkup() int       { return c.Ask }
 func (c *Currency) SetBidMarkup(bid int) { c.Bid = bid }
 func (c *Currency) BidMarkup() int       { return c.Bid }
 
-//Let's imagine Stock type's Ask has to be equal to Bid...
+//Let's imagine Stock type's markups for Ask and Bid prices have to be equal...
 type Stock struct {
 	Ask int
 	Bid int

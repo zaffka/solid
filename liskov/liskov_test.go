@@ -8,8 +8,8 @@ import (
 
 func TestAverage(t *testing.T) {
 	var currency Currency
-	assert.Equal(t, 15, average(20, 10, &currency))
+	assert.Equal(t, 15, averageMarkup(20, 10, &currency))
 
 	var stock Stock
-	assert.Equal(t, 10, average(20, 10, &stock)) //has to be 15 as well
+	assert.Equal(t, 15, averageMarkup(20, 10, &stock)) //this fails
 }

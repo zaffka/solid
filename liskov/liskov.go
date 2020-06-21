@@ -1,11 +1,11 @@
 package liskov
 
 type FeeHandler interface {
-	SetAsk(int)
-	GetAsk() int
+	SetAskMarkup(int)
+	AskMarkup() int
 
-	SetBid(int)
-	GetBid() int
+	SetBidMarkup(int)
+	BidMarkup() int
 }
 
 type Currency struct {
@@ -13,10 +13,10 @@ type Currency struct {
 	Bid int
 }
 
-func (c *Currency) SetAsk(ask int) { c.Ask = ask }
-func (c *Currency) GetAsk() int    { return c.Ask }
-func (c *Currency) SetBid(bid int) { c.Bid = bid }
-func (c *Currency) GetBid() int    { return c.Bid }
+func (c *Currency) SetAskMarkup(ask int) { c.Ask = ask }
+func (c *Currency) AskMarkup() int       { return c.Ask }
+func (c *Currency) SetBidMarkup(bid int) { c.Bid = bid }
+func (c *Currency) BidMarkup() int       { return c.Bid }
 
 //Let's imagine Stock type's Ask has to be equal to Bid...
 type Stock struct {
@@ -24,26 +24,26 @@ type Stock struct {
 	Bid int
 }
 
-func (s *Stock) SetAsk(ask int) {
+func (s *Stock) SetAskMarkup(ask int) {
 	s.Ask = ask
 	s.Bid = ask // ...so, we decided to also set Bid here
 }
 
-func (s *Stock) GetAsk() int { return s.Ask }
+func (s *Stock) AskMarkup() int { return s.Ask }
 
-func (s *Stock) SetBid(bid int) {
+func (s *Stock) SetBidMarkup(bid int) {
 	s.Bid = bid
 	s.Ask = bid // ...and Ask here
 }
 
-func (s *Stock) GetBid() int { return s.Bid }
+func (s *Stock) BidMarkup() int { return s.Bid }
 
-func average(ask, bid int, h FeeHandler) int {
+func averageMarkup(ask, bid int, h FeeHandler) int {
 
-	h.SetAsk(ask)
-	h.SetBid(bid)
+	h.SetAskMarkup(ask)
+	h.SetBidMarkup(bid)
 
-	return (h.GetAsk() + h.GetBid()) / 2
+	return (h.AskMarkup() + h.BidMarkup()) / 2
 }
 
 /*
